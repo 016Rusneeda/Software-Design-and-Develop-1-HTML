@@ -611,9 +611,7 @@
 
 ```
 - ภาพผลลัพธ์:
-[![image](https://github.com/user-attachments/assets/2b698aa6-3dac-405d-9829-6934a1f9ff64)
-![image](https://github.com/user-attachments/assets/015338b5-cd53-4334-a1b6-5ac38159e500)
-]
+[ ]
 
 
 ## การทดลองที่ 6: การสร้างฟอร์ม
