@@ -1115,5 +1115,6 @@ semantic elements คือ elements ใน HTML5 ที่มีความห
 
 
 ### บันทึกผลการทดลอง
-[บันทึกภาพหน้าจอของผลลัพธ์การทดลอง]
+[![image](https://github.com/user-attachments/assets/01aed241-e789-4fd5-b587-18ccec5734af)
+]
 
