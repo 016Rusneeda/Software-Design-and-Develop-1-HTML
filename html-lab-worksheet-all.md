@@ -508,7 +508,7 @@
 ### แบบฝึกหัด
 1. สร้างตารางแสดงข้อมูลส่วนตัว
 2. สร้างรายการเมนูอาหาร
-
+```html
 [<!DOCTYPE html>
 <head>
     <title>การสร้างตารางและรายการ</title>
@@ -607,11 +607,13 @@
 </body>
 </html>
 ]
-```html
+
 
 ```
 - ภาพผลลัพธ์:
-[ ]
+[ ![image](https://github.com/user-attachments/assets/5a035b2a-7d02-49d3-8d48-efccd36b4785)
+![image](https://github.com/user-attachments/assets/c5a90ba6-ab61-493a-bf2d-1a0396db7d37)
+]
 
 
 ## การทดลองที่ 6: การสร้างฟอร์ม
