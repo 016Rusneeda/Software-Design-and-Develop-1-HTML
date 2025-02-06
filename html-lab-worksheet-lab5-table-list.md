@@ -163,9 +163,8 @@
 </body>
 </html>
 ]
-```html
 
-```
 - ภาพผลลัพธ์:
-[วางภาพ screenshot ที่นี่]
+![image](https://github.com/user-attachments/assets/96162870-1030-4e9d-a290-b0a3b39a5787)
+
 
