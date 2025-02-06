@@ -838,10 +838,196 @@
    - ตรวจสอบขนาดไฟล์รูปภาพ
 
 ### บันทึกผลการทดลอง
-[วางโค้ด HTML ที่นี่]
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ฟอร์มสมัครสมาชิกร้านค้า</title>
+</head>
+<style>
+    .form-group {
+        margin-bottom: 15px;
+    }
+    
+    .input-wrapper {
+        display: flex;
+        align-items: center;
+    }
+    
+    .required-mark {
+        color: red;
+        margin-left: 5px;
+    }
+</style>
+<body>
+    <h3>ฟอร์มสมัครสมาชิกร้านค้า</h3>
+    <form action="/register" method="post">
+        <!-- ส่วนข้อมูลส่วนตัว -->
+        <fieldset>
+            <legend>ข้อมูลส่วนตัว</legend>
+            
+            <div class="form-group">
+                <label for="prefix">คำนำหน้า:</label>
+                 <select id="prefix" name="prefix" required>
+                    <option value="">เลือกคำนำหน้า</option>
+                    <option value="mr">นาย</option>
+                    <option value="ms">นางสาว</option>
+                    <option value="mrs">นาง</option>
+                </select>
+            </div>
+    
+            <div class="form-group">
+                <label for="firstName">ชื่อ:</label>
+                <input type="text" id="firstName" name="firstName" required><span class="required-mark">*</span>
+            </div>
+    
+            <div class="form-group">
+                <label for="lastName">นามสกุล:</label>
+                <input type="text" id="lastName" name="lastName" required><span class="required-mark">*</span>
+            </div>
+    
+            <div class="form-group">
+                <label for="birthdate">วันเกิด:</label>
+                <input type="date" id="birthdate" name="birthdate" required>
+            </div>
+    
+            <div class="form-group">
+                <label>เพศ:</label>
+                <input type="radio" id="male" name="gender" value="male" required>
+                <label for="male">ชาย</label>
+                <input type="radio" id="female" name="gender" value="female">
+                <label for="female">หญิง</label>
+            </div>
+        </fieldset>
+    
+        <!-- ส่วนข้อมูลการติดต่อ -->
+        <fieldset>
+            <legend>ข้อมูลการติดต่อ</legend>
+    
+            <div class="form-group">
+                <label for="email">อีเมล:</label>
+                <input pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" required 
+                
+                >
+            </div>
+    
+            <div class="form-group">
+                <label for="phone">เบอร์โทรศัพท์:</label>
+                <input type="tel" id="phone" name="phone" 
+                       pattern="[0-9]{10}" required>
+            </div>
+    
+            <div class="form-group">
+                <label for="address">ที่อยู่จัดส่ง:</label>
+                <textarea id="address" name="address" 
+                          rows="3" required></textarea> <span class="required-mark">*</span>
+            </div>
+        </fieldset>
+    
+        <!-- ส่วนรหัสผ่าน -->
+
+        <fieldset>
+            <legend>รหัสผ่าน</legend>
+    
+            <div class="form-group">
+                <label for="password">รหัสผ่าน:</label>
+                <input type="text" id="password" name="password" 
+                       pattern="[a-zA-Z0-9]{8}" required><span class="required-mark">*</span>
+            </div>
+    
+            <div class="form-group">
+                <label for="phone">กรอกอีกครั้ง:</label>
+                <input type="text" id="password" name="password" 
+                       pattern="[a-zA-Z0-9]{8}" required><span class="required-mark">*</span>
+            </div>
+        </fieldset>
+        
+    
+        <!-- ส่วนความสนใจและกิจกรรม -->
+        <fieldset>
+            <legend>หมวดหมู่สินค้า</legend>
+    
+            <div class="form-group">
+                <label>ความสนใจ:</label>
+                <br><input type="checkbox" id="processed food" name="interests" value="processed food">
+                <label for="processed food">อาหารแปรรูป</label>
+                <br><input type="checkbox" id="snacks" name="interests" value="snacks">
+                <label for="snacks">ขนมคบเขี้ยว</label>
+                <br><input type="checkbox" id="drinking water" name="interests" value="drinking water">
+                <label for="drinking water">เครื่องดื่ม</label>
+                <br><input type="checkbox" id="cosmetics" name="interests" value="cosmetics">
+                <label for="cosmetics">เครื่องสำอาง</label>
+            </div>
+        </fieldset>
+    
+        <!-- ส่วนอัพโหลดเอกสาร -->
+        <fieldset>
+            <legend>รูปโปรไฟล์</legend>
+            <div class="form-group">
+                <label for="photo">รูปถ่าย:</label>
+                <input type="file" id="photo" name="photo" 
+                       accept="image/*" required><span class="required-mark">*</span>
+            </div>
+
+        </fieldset>
+    
+        <!-- ส่วนการยอมรับเงื่อนไข -->
+        <fieldset>
+            <legend>การยอมรับเงื่อนไข</legend>
+            <!--ทำ Scroll bar-->
+            <div style="width: 800px; height: 150px; overflow-y: scroll; scrollbar-arrow-color:blue; scrollbar-face-color: #e7e7e7; scrollbar-3dlight-color: #a0a0a0; scrollbar-darkshadow-color:#888888">
+
+                <p align="left">
+                    <strong>ข้อกำหนดและเงื่อนไขการใช้งาน</strong>
+                    <br>ข้อกำหนดและเงื่อนไขในการใช้งานฉบับนี้ ("ข้อกำหนดและเงื่อนไขฯ" หรือ "สัญญา") 
+                    เป็นข้อตกลงระหว่าง PDPA Pro ("บริษัท รุสนีดา จำกัด" หรือ "เรา") และท่าน ("ผู้ใช้" หรือ "ท่าน") 
+                    สัญญาฉบับนี้ได้กำหนดข้อกำหนดและเงื่อนไขทั่วไปสำหรับการใช้งาน PDPA 
+                    Pro ผลิตภัณฑ์หรือบริการ และการเข้าร่วมกิจกรรมที่เกี่ยวข้องกับ PDPA Pro ใด ๆ ก็ตามของท่าน (เรียกรวมกันว่า "เว็บไซต์" หรือ "บริการ")
+                    
+                    <br><strong>บัญชีผู้ใช้และสมาชิก</strong>
+                    <br>หากท่านได้ทำการสร้างบัญชีผู้ใช้บนเว็บไซต์ 
+                    ท่านมีหน้าที่ในการรักษาความปลอดภัยของบัญชีของท่านและท่านต้องรับผิดชอบต่อกิจกรรมทั้งหมดที่เกิดขึ้นภายใต้การใช้งานบัญชีหรือการดำเนินการอื่นใดที่เกี่ยวข้องกับบัญชีนั้น 
+                    เราอาจมีการสังเกตการณ์และตรวจสอบบัญชีใหม่ก่อนที่ท่านจะลงชื่อเข้าใช้และใช้บริการของเรา การให้ข้อมูลติดต่อที่เป็นเท็จไม่ว่าประเภทใดก็ตามอาจส่งผลให้บัญชีของท่านถูกยุติการใช้งาน 
+                    ท่านต้องแจ้งให้เราทราบทันทีเมื่อบัญชีของท่านถูกนำไปใช้โดยไม่ได้รับอนุญาตหรือเมื่อมีการละเมิดความปลอดภัยอื่น ๆ ทางเราจะไม่ขอรับผิดชอบต่อความเสียหายใด ๆ 
+                    ที่เกิดขึ้นจากการกระทำหรือการละเว้นการกระทำของท่าน เราอาจทำการระงับ ปิดการใช้งาน หรือลบบัญชีผู้ใช้ของท่าน (หรืออย่างใดอย่างหนึ่ง) 
+                    หากเราพิจารณาว่าท่านได้ละเมิดข้อกำหนดใด ๆ ของข้อตกลงนี้หรือการกระทำของท่านมีแนวโน้มที่จะทำลายชื่อเสียงและค่าความนิยมของเรา 
+                    หากเราลบบัญชีของท่านด้วยเหตุผลข้างต้น ท่านจะไม่สามารถลงทะเบียนใหม่เพื่อใช้บริการของเราได้ 
+                    โดยเราอาจทำการปิดกั้นที่อยู่อีเมลและที่อยู่อินเทอร์เน็ตโปรโตคอลของท่านเพื่อป้องกันการลงทะเบียนอีกครั้ง
+                    
+                    <br><strong>เนื้อหาของผู้ใช้งาน</strong>
+                    <br>เราไม่ได้เป็นเจ้าของข้อมูลหรือเนื้อหาใด ๆ (“เนื้อหา”) ที่ท่านได้ให้ไว้บนเว็บไซต์เพื่อการใช้งานใช้บริการ 
+                    ท่านจะต้องรับผิดชอบต่อความถูกต้อง คุณภาพ ความสมบูรณ์ ความถูกต้องตามกฎหมาย ความน่าเชื่อถือ 
+                    ความเหมาะสมและความเป็นเจ้าของทรัพย์สินทางปัญญาหรือสิทธิในการใช้เนื้อหาที่นำส่งทั้งหมดแต่เพียงผู้เดียว 
+                    เราอาจสังเกตการณ์และตรวจสอบเนื้อหาบนเว็บไซต์ที่ท่านนำส่งหรือสร้างขึ้นจากการบริการโดยตัวท่าน การใช้งานเว็บไซต์ 
+                    โดยท่าน ไม่ถือเป็นการอนุญาตเราในการใช้ ทำซ้ำ ดัดแปลง แก้ไข เผยแพร่ หรือแจกจ่ายเนื้อหาที่ท่านสร้างขึ้นหรือจัดเก็บไว้ในบัญชีผู้ใช้ของท่านเพื่อการค้า 
+                    การตลาดหรือวัตถุประสงค์อื่นใดที่มีคล้ายกันเว้นแต่ท่านจะให้การอนุญาตแก่เราเป็นการเฉพาะ อย่างไรก็ตาม ท่านให้สิทธิแก่เราในการเข้าถึง คัดลอก แจกจ่าย จัดเก็บ ส่ง 
+                    จัดรูปแบบใหม่และแสดงเนื้อหาของบัญชีผู้ใช้ของท่านตามที่กำหนดไว้สำหรับวัตถุประสงค์ในการให้บริการแก่ท่านเท่านั้น เราขอสงวนสิทธิในการปฏิเสธหรือลบเนื้อหาใด ๆ 
+                    ที่ละเมิดนโยบายของเรา ไม่เหมาะสม หรือเป็นอันตรายในทางใดทางหนึ่งต่อข้อกำหนดและเงื่อนไขตามดุลยพินิจของเราโดยไม่เป็นการจำกัดการรับรองและการรับประกันที่
+                    เราได้กำหนดไว้
+                </p>
+                
+                </div>
+    
+            <div class="form-group">
+                <input type="checkbox" id="agree" name="agree" required>
+                <label for="agree">
+                    ข้าพเจ้าได้อ่านและยอมรับเงื่อนไขทั้งหมด
+                </label>
+            </div>
+    
+            <div class="form-group">
+                <button type="submit">ลงทะเบียน</button>
+                <button type="reset">ล้างข้อมูล</button>
+            </div>
+        </fieldset>
+    </form>
+</body>
+</html>
 ```
 - ภาพผลลัพธ์:
-[วางภาพ screenshot ที่นี่]
+[![image](https://github.com/user-attachments/assets/8092a41e-e439-496d-be96-964e91eeff8d)
+![image](https://github.com/user-attachments/assets/8144bbf5-fd07-4f5c-9780-1af06b4120fd)
+]
 
 
 ## การทดลองที่ 7: HTML Layout
